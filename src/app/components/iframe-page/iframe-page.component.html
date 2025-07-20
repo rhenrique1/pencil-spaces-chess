@@ -1,0 +1,5 @@
+<div class="flex flex-col items-center justify-center p-4 h-full bg-gray-50 rounded-lg">
+    <h2 class="text-xl font-bold mb-4 text-gray-800 capitalize">{{ playerColor }} Player</h2>
+    <ngx-chess-board #board (moveChange)="onMove($event)" [darkDisabled]="darkDisabled"
+        [lightDisabled]="lightDisabled"></ngx-chess-board>
+</div>

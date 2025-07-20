@@ -1,0 +1,32 @@
+<div class="flex flex-col h-screen">
+    <header class="bg-white shadow-md justify-items-center">
+        <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl font-bold leading-tight text-center text-gray-900">
+                Chess App
+            </h1>
+            <button (click)="openNewGameDialog({title: 'New game', text: 'Are you sure you want to start a new game?'})"
+                class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 cursor-pointer m-4">
+                NEW GAME
+            </button>
+        </div>
+    </header>
+    <main class="h-full">
+        <div class="flex-grow p-4 h-full">
+            <div class="flex flex-col md:flex-row gap-4 h-full">
+                <div class="w-full md:w-1/2 flex flex-col bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="p-2 bg-gray-200 text-sm font-semibold text-gray-600">White</div>
+                    <iframe #white src="/iframepage?id=white" class="w-full h-full border-0"
+                        title="White Player Board"></iframe>
+                </div>
+                <div class="w-full md:w-1/2 flex flex-col bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="p-2 bg-gray-200 text-sm font-semibold text-gray-600">Black</div>
+                    <iframe #black src="/iframepage?id=black" class="w-full h-full border-0"
+                        title="Black Player Board"></iframe>
+                </div>
+
+            </div>
+        </div>
+    </main>
+    <app-dialog *ngIf="showNewGameAlert" [text]="dialogText" [title]="dialogTitle"
+        (close)="confirmNewGame($event)"></app-dialog>
+</div>
